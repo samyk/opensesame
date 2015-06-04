@@ -2,14 +2,15 @@
 
 [OpenSesame](http://samy.pl/opensesame) is a device that can wirelessly open virtually any fixed-code garage door in seconds, exploiting a **new attack** I've discovered on wireless fixed-pin devices. Using a child's toy from Mattel.
 
-By [@SamyKamkar](https://twitter.com/samykamkar) // <http://samy.pl>
+##### Follow me on [Twitter](https://twitter.com/samykamkar) or [join my mailing list](http://samy.pl/list/) to hear about future projects and research.
 
-Released June 4, 2015
+By [@SamyKamkar](https://twitter.com/samykamkar)
 
 **Live demonstration** and full details available in the
 <a href="https://www.youtube.com/watch?v=iSSRaIU9_Vc" target="_blank">video:
 <img src="http://img.youtube.com/vi/iSSRaIU9_Vc/0.jpg" alt="OpenSesame" width="640" height="480" border="10" /></a>
 
+Released June 4, 2015
 
 **Source code:** [https://github.com/samyk/opensesame](https://github.com/samyk/opensesame)
 
@@ -74,7 +75,7 @@ The first attempt at reduction is pretty obvious and is to remove the retransmis
 
 Nice.
 
-Now while initially testing basic brute forcing on garages, I was chatting with some #ubertooth people, and [mikeryan](https://lacklustre.net/) suggested I remove the wait period between codes and see if I can send each code back-to-back.
+Now while initially testing basic brute forcing on garages, I was chatting with some #ubertooth people, and [mikeryan](https://lacklustre.net/) suggested I remove the wait period between sending each full code and see if I can send each code back-to-back. So instead of sending "111111000000[wait for 12 bits]111111000001", I would send "111111000000111111000001".
 
 This worked, and reduced the entire time to transmit all codes by 50%! Incredible.
 
@@ -133,8 +134,6 @@ To test every 8 through 12 bit possibility:
 **We went from 1771 seconds down to 8 seconds. Even our most efficient implementation with the other reductions but without De Bruijn was at 177 seconds, more than 20 times longer. Awesome!**
 
 -----
-
-
 
 # (U) Hardware
 
