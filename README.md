@@ -7,8 +7,8 @@
 By [@SamyKamkar](https://twitter.com/samykamkar)
 
 **Live demonstration** and full details available in the
-<a href="https://www.youtube.com/watch?v=iSSRaIU9_Vc" target="_blank">video:
-<img src="http://img.youtube.com/vi/iSSRaIU9_Vc/0.jpg" alt="OpenSesame" width="640" height="480" border="10" /></a>
+<a href="https://www.youtube.com/watch?v=iSSRaIU9_Vc" target="_blank">video</a>:
+<a href="https://www.youtube.com/watch?v=iSSRaIU9_Vc" target="_blank"><img src="http://img.youtube.com/vi/iSSRaIU9_Vc/0.jpg?" alt="OpenSesame" width="640" height="480" border="10" /></a>
 
 Released June 4, 2015
 
@@ -216,5 +216,6 @@ There are a number of resources and tools, many of which I've learned from and t
 
 You can see more of my projects at <http://samy.pl> or contact me at <code@samy.pl>.
 
+##### Follow me on [Twitter](https://twitter.com/samykamkar) or [join my mailing list](http://samy.pl/list/) to hear about future projects and research.
 
-------
+Thanks!
