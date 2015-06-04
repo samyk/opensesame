@@ -34,6 +34,8 @@ Released June 4, 2015
 
 # (U) Capabilities
 
+![OpenSesame](http://samy.pl/opensesame/nyan.gif)
+
 **[OpenSesame](http://samy.pl/opensesame)** exploits not only the limited key space of most fixed pin wireless garages and gates, but employs a **new attack** I've discovered reducing the time it takes to open any garage by over 95%. This means most garages will take only seconds to open.
 
 OpenSesame uses the Radica Girltech IM-ME texting toy from Mattel, as it sports all the equipment we need to pull off the attack -- an effective [TI CC1110](http://www.ti.com/product/cc1110-cc1111) sub-GHz RF chip, an LCD display, keyboard, backlight, and more. And it's pink.
@@ -84,6 +86,8 @@ This worked, and reduced the entire time to transmit all codes by 50%! Incredibl
 
 # (U) The OpenSesame Attack
 
+![De Bruijn](http://samy.pl/opensesame/db.png)
+
 Here's the kicker. When looking at the data we're sending, we're now sending a continuous stream of bits. For example:
 
 * (code #1) 000000000000
@@ -130,6 +134,8 @@ To test every 8 through 12 bit possibility:
 
 -----
 
+
+
 # (U) Hardware
 
 ### IM-ME
@@ -142,8 +148,13 @@ Now we could have built our own device, but the beauty of this is that it's all 
 ### GoodFET
 I use Travis Goodspeed's [GoodFET](http://goodfet.sourceforge.net/) device to program the IM-ME as he's built a tool to program it for us!
 
+![GoodFET](http://samy.pl/opensesame/pics/IMG_2757.jpg)
+
 ### GIMME
 I ghetto-rigged some wire to the test pads and superglued the ends to always connect properly to the GoodFET, but you can also use the [GIMME](http://ossmann.blogspot.com/2012/10/programming-pink-pagers-in-style.html) from Michael Ossmann for a more convenient connector.
+
+![OpenSesame Internals](http://samy.pl/opensesame/pics/back2.jpg)
+
 
 -----
 
