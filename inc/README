@@ -1,0 +1,5 @@
+Images exported to .pnm files via Gimp (ASCII)
+Then, .pnm files exported to C .inc files via Travis Goodspeed's sprite2c.pl:
+ - http://perl.pastebin.com/5Mvi6f66
+
+More information: http://travisgoodspeed.blogspot.com/2010/11/bitmapped-sprites-on-girltech-imme.html
