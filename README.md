@@ -118,7 +118,7 @@ So the garage actually tests:
 
 Meaning we sent 13 bits to test **two** 12-bit codes instead of sending a full 24 bits. Incredible!
 
-What's even more beautiful is that since the garage is not clearing an attempted code, a 12 bit code also tests five 8 bit codes, four 9 bit codes, three 10 bit codes, four 11 bit codes, and of course one 12 bit code! As long as we send every 12 bit code, the 8-11 bit codes will all be tested simultaneously.
+What's even more beautiful is that since the garage is not clearing an attempted code, a 12 bit code also tests five 8 bit codes, four 9 bit codes, three 10 bit codes, two 11 bit codes, and of course one 12 bit code! As long as we send every 12 bit code, the 8-11 bit codes will all be tested simultaneously.
 
 Now, there must be an algorithm to *efficiently* produce every possible code, with overlap (to exploit the shift register) in as few bits as possible.
 
