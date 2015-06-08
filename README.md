@@ -35,7 +35,7 @@ Released June 4, 2015
 
 # (U) Capabilities
 
-![OpenSesame](http://samy.pl/opensesame/nyan.gif)
+![OpenSesame](http://samy.pl/opensesame/garage.gif)
 
 **[OpenSesame](http://samy.pl/opensesame)** exploits not only the limited key space of most fixed pin wireless garages and gates, but employs a **new attack** I've discovered reducing the time it takes to open any garage by over 95%. This means most garages will take only seconds to open.
 
@@ -44,6 +44,8 @@ OpenSesame uses the Radica Girltech IM-ME texting toy from Mattel, as it sports 
 This tool builds off of the shoulders of giants, including the original opensesame by Michael Ossmann, IM-ME code & goodfet.cc by Travis Goodspeed, IM-ME LCD reverse engineering by Dave, and effective ideas from Mike Ryan. Additional links and resources included at the end.
 
 Note, this will **not** open garages using rolling codes. Garages with rolling code technology (often called "Intellicode", "Security+", ""hopping codes", etc) are much more secure than fixed-pin garages **but *are* susceptible to other attacks**.
+
+![OpenSesame](http://samy.pl/opensesame/nyan.gif)
 
 -----
 
