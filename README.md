@@ -2,6 +2,8 @@
 
 [OpenSesame](http://samy.pl/opensesame) is a device that can wirelessly open virtually any fixed-code garage door in seconds, exploiting a **new attack** I've discovered on wireless fixed-pin devices. Using a child's toy from Mattel.
 
+**Update to attack rolling codes:** I've demonstrated a new tool, <a href="https://samy.pl/defcon2015/">RollJam</i>, which additionally attacks rolling codes of garages and vehicles, presented <a href="https://samy.pl/defcon2015/">here at DEFCON 23</a>.
+
 ##### Follow me on [Twitter](https://twitter.com/samykamkar) or [join my mailing list](http://samy.pl/list/) to hear about future projects and research.
 
 By [@SamyKamkar](https://twitter.com/samykamkar)
