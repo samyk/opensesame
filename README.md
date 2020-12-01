@@ -1,33 +1,20 @@
-# [OpenSesame](http://samy.pl/opensesame/)
+# [OpenSesame](https://samy.pl/opensesame/)
 
-[OpenSesame](http://samy.pl/opensesame) is a device that can wirelessly open virtually any fixed-code garage door in seconds, exploiting a **new attack** I've discovered on wireless fixed-pin devices. Using a child's toy from Mattel.
+[OpenSesame](https://samy.pl/opensesame) is a device that can wirelessly open virtually any fixed-code garage door in seconds, exploiting a **new attack** I've discovered on wireless fixed-pin devices. Using a child's toy from Mattel.
 
 **Update to attack rolling codes:** I've demonstrated a new tool, <a href="https://samy.pl/defcon2015/">RollJam</a>, which additionally attacks rolling codes of garages and vehicles, presented <a href="https://samy.pl/defcon2015/">here at DEFCON 23</a>.
 
-##### Follow me on [Twitter](https://twitter.com/samykamkar) or [join my mailing list](http://samy.pl/list/) to hear about future projects and research.
+##### Follow me on [Twitter](https://twitter.com/samykamkar) or [join my mailing list](https://samy.pl/list/) to hear about future projects and research.
 
 By [@SamyKamkar](https://twitter.com/samykamkar)
 
 **Live demonstration** and full details available in the
 <a href="https://www.youtube.com/watch?v=iSSRaIU9_Vc" target="_blank">video</a>:
-<a href="https://www.youtube.com/watch?v=iSSRaIU9_Vc" target="_blank"><img src="http://img.youtube.com/vi/iSSRaIU9_Vc/0.jpg?" alt="OpenSesame" width="640" height="480" border="10" /></a>
+<a href="https://www.youtube.com/watch?v=iSSRaIU9_Vc" target="_blank"><img src="https://img.youtube.com/vi/iSSRaIU9_Vc/0.jpg?" alt="OpenSesame" width="640" height="480" border="10" /></a>
 
 Released June 4, 2015
 
 **Source code:** [https://github.com/samyk/opensesame](https://github.com/samyk/opensesame)
-
-**Vulnerable Vendors:** The following vendors appear to **directly sell (obviously) insecure products as of June 4, 2015**:
-
-* Nortek / Linear / Multi-Code, [example product](http://www.nortekcontrol.com/product_detail.php?productId=949)
-* NSCD/North Shore Commercial Door, [example product](http://www.northshorecommercialdoor.com/pu99gaandgad1.html)
-
-**Previously Vulnerable Vendors:** The following vendors have **old** models that are vulnerable, but current models appear secure from these attacks (or are no longer offered):
-
-* Chamberlain
-* Liftmaster
-* Stanley
-* Delta-3
-* Moore-O-Matic
 
 **Prevention:** If you are using a gate or garage which uses "fixed codes", to prevent this type of attack, ensure you upgrade to a system which clearly states that it's using **rolling codes, hopping codes, Security+ or Intellicode**. These are **not** foolproof from attack, but do prevent the OpenSesame attack along with traditional brute forcing attacks. Suggested vendors: current products from LiftMaster and Genie.
 
@@ -37,17 +24,17 @@ Released June 4, 2015
 
 # (U) Capabilities
 
-![OpenSesame](http://samy.pl/opensesame/garage.gif)
+![OpenSesame](https://samy.pl/opensesame/garage.gif)
 
-**[OpenSesame](http://samy.pl/opensesame)** exploits not only the limited key space of most fixed pin wireless garages and gates, but employs a **new attack** I've discovered reducing the time it takes to open any garage by over 95%. This means most garages will take only seconds to open.
+**[OpenSesame](https://samy.pl/opensesame)** exploits not only the limited key space of most fixed pin wireless garages and gates, but employs a **new attack** I've discovered reducing the time it takes to open any garage by over 95%. This means most garages will take only seconds to open.
 
-OpenSesame uses the Radica Girltech IM-ME texting toy from Mattel, as it sports all the equipment we need to pull off the attack -- an effective [TI CC1110](http://www.ti.com/product/cc1110-cc1111) sub-GHz RF chip, an LCD display, keyboard, backlight, and more. And it's pink.
+OpenSesame uses the Radica Girltech IM-ME texting toy from Mattel, as it sports all the equipment we need to pull off the attack -- an effective [TI CC1110](https://www.ti.com/product/cc1110-cc1111) sub-GHz RF chip, an LCD display, keyboard, backlight, and more. And it's pink.
 
 This tool builds off of the shoulders of giants, including the original opensesame by Michael Ossmann, IM-ME code & goodfet.cc by Travis Goodspeed, IM-ME LCD reverse engineering by Dave, and effective ideas from Mike Ryan. Additional links and resources included at the end.
 
 Note, this will **not** open garages using rolling codes. Garages with rolling code technology (often called "Intellicode", "Security+", ""hopping codes", etc) are much more secure than fixed-pin garages **but *are* susceptible to other attacks**.
 
-![OpenSesame](http://samy.pl/opensesame/nyan.gif)
+![OpenSesame](https://samy.pl/opensesame/nyan.gif)
 
 -----
 
@@ -91,7 +78,7 @@ This worked, and reduced the entire time to transmit all codes by 50%! Incredibl
 
 # (U) The OpenSesame Attack
 
-![De Bruijn](http://samy.pl/opensesame/db.png)
+![De Bruijn](https://samy.pl/opensesame/db.png)
 
 Here's the kicker. When looking at the data we're sending, we're now sending a continuous stream of bits. For example:
 
@@ -102,7 +89,7 @@ Here's the kicker. When looking at the data we're sending, we're now sending a c
 and so on, which looks like:
 **000000000000**000000000001**000000000010**000000000011
 
-The question is, how does the garage receiver look at these bits? What if it's using a bit [shift register](http://en.wikipedia.org/wiki/Shift_register)?
+The question is, how does the garage receiver look at these bits? What if it's using a bit [shift register](https://en.wikipedia.org/wiki/Shift_register)?
 
 According to Wikipedia:
 
@@ -126,9 +113,9 @@ What's even more beautiful is that since the garage is not clearing an attempted
 
 Now, there must be an algorithm to *efficiently* produce every possible code, with overlap (to exploit the shift register) in as few bits as possible.
 
-**My main man, [De Bruijn](http://en.wikipedia.org/wiki/Nicolaas_Govert_de_Bruijn).**
+**My main man, [De Bruijn](https://en.wikipedia.org/wiki/Nicolaas_Govert_de_Bruijn).**
 
-Nicolaas Govert de Bruijn was a Dutch mathematician who discovered just this, dubbed the [De Bruijn sequence](http://en.wikipedia.org/wiki/De_Bruijn_sequence).
+Nicolaas Govert de Bruijn was a Dutch mathematician who discovered just this, dubbed the [De Bruijn sequence](https://en.wikipedia.org/wiki/De_Bruijn_sequence).
 
 OpenSesame implements this algorithm to produce every possible overlapping sequence of 8-12 bits in the least amount of time. How little time?
 
@@ -142,21 +129,21 @@ To test every 8 through 12 bit possibility:
 # (U) Hardware
 
 ### IM-ME
-The IM-ME from Mattel is a defunct toy no longer produced, but constantly appearing on Amazon and eBay with varying prices from $12 to $100. To my knowledge, much of the reverse engineering of the LCD and keyboard is by [Dave](http://daveshacks.blogspot.com/2010/01/im-me-hacking.html), then tools and more work on it from [Travis Goodspeed](http://travisgoodspeed.blogspot.com/2010/03/im-me-goodfet-wiring-tutorial.html) including support in [GoodFET](http://goodfet.sourceforge.net/clients/goodfetcc/), and more awesome work, including my favorite spectrum analyzer, from [Michael Ossmann](http://ossmann.blogspot.com/2010/03/16-pocket-spectrum-analyzer.html).
+The IM-ME from Mattel is a defunct toy no longer produced, but constantly appearing on Amazon and eBay with varying prices from $12 to $100. To my knowledge, much of the reverse engineering of the LCD and keyboard is by [Dave](https://daveshacks.blogspot.com/2010/01/im-me-hacking.html), then tools and more work on it from [Travis Goodspeed](https://travisgoodspeed.blogspot.com/2010/03/im-me-goodfet-wiring-tutorial.html) including support in [GoodFET](https://goodfet.sourceforge.net/clients/goodfetcc/), and more awesome work, including my favorite spectrum analyzer, from [Michael Ossmann](https://ossmann.blogspot.com/2010/03/16-pocket-spectrum-analyzer.html).
 
-It is originally intended as a toy to communicate with friends. It uses the [CC1110](http://www.ti.com/product/cc1110-cc1111), a sub-GHz RF SoC, and sports an LCD display, backlight, keyboard, and is battery powered, all extremely useful for a hacker on the road texting her (or his) friends. Or hacking her (or his) friends. Hopefully both.
+It is originally intended as a toy to communicate with friends. It uses the [CC1110](https://www.ti.com/product/cc1110-cc1111), a sub-GHz RF SoC, and sports an LCD display, backlight, keyboard, and is battery powered, all extremely useful for a hacker on the road texting her (or his) friends. Or hacking her (or his) friends. Hopefully both.
 
 Now we could have built our own device, but the beauty of this is that it's all already packaged up for you, inexpensive, and is my favorite color.
 
 ### GoodFET
-I use Travis Goodspeed's [GoodFET](http://goodfet.sourceforge.net/) device to program the IM-ME as he's built a tool to program it for us!
+I use Travis Goodspeed's [GoodFET](https://goodfet.sourceforge.net/) device to program the IM-ME as he's built a tool to program it for us!
 
-![GoodFET](http://samy.pl/opensesame/pics/IMG_2757.jpg)
+![GoodFET](https://samy.pl/opensesame/pics/IMG_2757.jpg)
 
 ### GIMME
-I ghetto-rigged some wire to the test pads and superglued the ends to always connect properly to the GoodFET, but you can also use the [GIMME](http://ossmann.blogspot.com/2012/10/programming-pink-pagers-in-style.html) from Michael Ossmann for a more convenient connector.
+I ghetto-rigged some wire to the test pads and superglued the ends to always connect properly to the GoodFET, but you can also use the [GIMME](https://ossmann.blogspot.com/2012/10/programming-pink-pagers-in-style.html) from Michael Ossmann for a more convenient connector.
 
-![OpenSesame Internals](http://samy.pl/opensesame/pics/back2.jpg)
+![OpenSesame Internals](https://samy.pl/opensesame/pics/back2.jpg)
 
 
 -----
@@ -168,10 +155,10 @@ OpenSesame source code can be obtained in entirety from my github: <https://gith
 
 It is originally based off of Michael Ossmann's [opensesame](https://github.com/mossmann/im-me/tree/master/garage) which is specifically built for a fixed code on his garage, and the perfect example for a working OOK/ASK transmitter, handling most of the hardware work for us already. Also, the name was so great I had to use it, I hope Mike doesn't mind.
 
-If you haven't, check out his [spectrum analyzer](http://ossmann.blogspot.com/2010/03/16-pocket-spectrum-analyzer.html) for the IM-ME as I have a secondary IM-ME device loaded with that and it's the perfect portable, inexpensive spectrum analyzer.
+If you haven't, check out his [spectrum analyzer](https://ossmann.blogspot.com/2010/03/16-pocket-spectrum-analyzer.html) for the IM-ME as I have a secondary IM-ME device loaded with that and it's the perfect portable, inexpensive spectrum analyzer.
 
 ### goodfet.cc
-As mentioned in the hardware section, we use GoodFET to load the code, and [goodfet.cc](http://goodfet.sourceforge.net/clients/goodfetcc/) specifically to load onto our Chipcon device (TI CC111x = Texas Instruments Chipcon111x)
+As mentioned in the hardware section, we use GoodFET to load the code, and [goodfet.cc](https://goodfet.sourceforge.net/clients/goodfetcc/) specifically to load onto our Chipcon device (TI CC111x = Texas Instruments Chipcon111x)
 
 -----
 
@@ -196,21 +183,21 @@ PT2262, PT2264, SC2260, CS5211, PT2282, PT2240, eV1527, RT1527, FP527, HS527, SC
 # (U) Resources
 There are a number of resources and tools, many of which I've learned from and that you can learn more on this and similar topic too. Suggested reading / tools in the area:
 
-* Other projects of mine in the direct area of RF: [KeySweeper](http://samy.pl/keysweeper/) (2.4GHz) and [Digital Ding Dong Ditch](http://samy.pl/dingdong) (sub-GHz)
-* Michael Ossmann's [IM-ME spectrum analyzer](http://ossmann.blogspot.com/2010/03/16-pocket-spectrum-analyzer.html)
-* Travis Goodspeed's [goodfet.cc / IM-ME wiring](http://travisgoodspeed.blogspot.com/2010/03/im-me-goodfet-wiring-tutorial.html)
+* Other projects of mine in the direct area of RF: [KeySweeper](https://samy.pl/keysweeper/) (2.4GHz) and [Digital Ding Dong Ditch](https://samy.pl/dingdong) (sub-GHz)
+* Michael Ossmann's [IM-ME spectrum analyzer](https://ossmann.blogspot.com/2010/03/16-pocket-spectrum-analyzer.html)
+* Travis Goodspeed's [goodfet.cc / IM-ME wiring](https://travisgoodspeed.blogspot.com/2010/03/im-me-goodfet-wiring-tutorial.html)
 * Mike Ryan's [brain](https://lacklustre.net/)
 * Michael Ossmann's [HackRF](https://greatscottgadgets.com/hackrf/)
-* osmocom's [RTL-SDR](http://sdr.osmocom.org/trac/wiki/rtl-sdr)
+* osmocom's [RTL-SDR](https://sdr.osmocom.org/trac/wiki/rtl-sdr)
 * atlas 0f d00m's [rfcat for IM-ME](https://bitbucket.org/atlas0fd00m/rfcat)
 * Michael Ossmann's [cc11xx tools](https://github.com/mossmann/cc11xx)
-* Dave's [IM-ME LCD hacking](http://daveshacks.blogspot.com/2010/01/im-me-lcd-interface-hacked.html)
-* Andrew Nohawk's [Hacking fixed key remotes](http://andrewmohawk.com/2012/09/06/hacking-fixed-key-remotes/)
-* Adam Laurie's [You can ring my bell](http://adamsblog.aperturelabs.com/2013/03/you-can-ring-my-bell-adventures-in-sub.html)
-* Vegard Haugland's [Hacking garage door remote controllers](http://v3gard.com/2014/12/hacking-garage-door-remote-controllers/)
-* TI's [CC111x](http://www.ti.com/product/cc1110-cc1111) [datasheet](http://www.ti.com/lit/gpn/cc1110-cc1111)
-* sdcc's [compiler user guide](http://sdcc.sourceforge.net/doc/sdccman.pdf) for the 8051 microcontroller
-* the man, the m[ay]themetician, the legend, [De Bruijn](http://en.wikipedia.org/wiki/Nicolaas_Govert_de_Bruijn) and his [sequence](http://en.wikipedia.org/wiki/De_Bruijn_sequence)
+* Dave's [IM-ME LCD hacking](https://daveshacks.blogspot.com/2010/01/im-me-lcd-interface-hacked.html)
+* Andrew Nohawk's [Hacking fixed key remotes](https://andrewmohawk.com/2012/09/06/hacking-fixed-key-remotes/)
+* Adam Laurie's [You can ring my bell](https://adamsblog.aperturelabs.com/2013/03/you-can-ring-my-bell-adventures-in-sub.html)
+* Vegard Haugland's [Hacking garage door remote controllers](https://v3gard.com/2014/12/hacking-garage-door-remote-controllers/)
+* TI's [CC111x](https://www.ti.com/product/cc1110-cc1111) [datasheet](https://www.ti.com/lit/gpn/cc1110-cc1111)
+* sdcc's [compiler user guide](https://sdcc.sourceforge.net/doc/sdccman.pdf) for the 8051 microcontroller
+* the man, the m[ay]themetician, the legend, [De Bruijn](https://en.wikipedia.org/wiki/Nicolaas_Govert_de_Bruijn) and his [sequence](https://en.wikipedia.org/wiki/De_Bruijn_sequence)
 
 -----
 
@@ -218,8 +205,8 @@ There are a number of resources and tools, many of which I've learned from and t
 
 **Point of Contact:** [@SamyKamkar](https://twitter.com/samykamkar)
 
-You can see more of my projects at <http://samy.pl> or contact me at <code@samy.pl>.
+You can see more of my projects at <https://samy.pl> or contact me at <code@samy.pl>.
 
-##### Follow me on [Twitter](https://twitter.com/samykamkar) or [join my mailing list](http://samy.pl/list/) to hear about future projects and research.
+##### Follow me on [Twitter](https://twitter.com/samykamkar) or [join my mailing list](https://samy.pl/list/) to hear about future projects and research.
 
 Thanks!
