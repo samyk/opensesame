@@ -20,4 +20,4 @@ void fb_bitblt(u8 *sprite, u16 x, u16 y, u8 frame);
 void fb_blank();
 
 //! Draw a horizontal line.
-void fb_horizline(u16 x, u16 y, u16 x);
+void fb_horizline(u16 x, u16 y, u16 xp);
