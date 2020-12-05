@@ -1,10 +1,9 @@
 /*
  * IM-Me display functions
  *
- * Copyright 2010 Dave
- * http://daveshacks.blogspot.com/2010/01/im-me-lcd-interface-hacked.html
- *
+ * Copyright 2010 Dave - http://daveshacks.blogspot.com/2010/01/im-me-lcd-interface-hacked.html
  * Copyright 2010 Michael Ossmann
+ * Copyright 2015-2020 Samy Kamkar
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -204,7 +203,7 @@ void clear() {
 }
 
 /* sdcc provides printf if we provide this */
-void putchar(char c)
+PUTCHAR_TYPE putchar(char c)
 {
 #ifdef SIMULATOR
 	while (!TI); /*  wait end of last transmission */
@@ -221,5 +220,8 @@ void putchar(char c)
 			txData(font[c - FONT_OFFSET][i] ^ (reverseTxt ? 0xff : 0));
 		txData(reverseTxt ? 0xff : 0x00);
 	}
+#endif
+#ifdef PUTCHAR_INT
+  return c;
 #endif
 }

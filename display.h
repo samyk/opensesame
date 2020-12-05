@@ -1,10 +1,9 @@
 /*
  * IM-Me display functions
  *
- * Copyright 2010 Dave
- * http://daveshacks.blogspot.com/2010/01/im-me-lcd-interface-hacked.html
- *
+ * Copyright 2010 Dave - http://daveshacks.blogspot.com/2010/01/im-me-lcd-interface-hacked.html
  * Copyright 2010 Michael Ossmann
+ * Copyright 2015-2020 Samy Kamkar
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +22,14 @@
  */
 
 #include "types.h"
+
+// sdcc 3.7.0+ uses int putchar
+#if (SDCC_VERSION_HI == 3 && SDCC_VERSION_LO >= 7) || (SDCC_VERSION_HI >= 4)
+#define PUTCHAR_INT
+#define PUTCHAR_TYPE int
+#else
+#define PUTCHAR_TYPE void
+#endif
 
 static volatile __bit reverseTxt = 0;
 
@@ -112,5 +119,5 @@ void clear();
 void UART_Init();
 
 #ifndef LOCAL
-void putchar(char c);
+PUTCHAR_TYPE putchar(char c);
 #endif
