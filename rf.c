@@ -135,10 +135,11 @@ void convert_bits()
 // start the de bruijn sequence using the recursive db() function
 void de_bruijn()
 {
-	// clear a[], s
+	// clear a[], s, k
 	for (tmpi = 0; tmpi <= MAXBITS; tmpi++)
 		a[tmpi] = 0;
 	s = 0;
+	k = 0;
 	firstTx = 1;
 
 	// begin recursive de bruijn
